@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% if object_list %}
+<div class="mb-3">
+<br>
+<a href="{% url 'reset_table' %}" class="btn btn-danger">Reset</a>
+</div>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Planned_Hours</th>
+            <th scope="col">Actual_Hours</th>
+            <th scope="col">Budget</th>
+            <th scope="col">Sells</th>
+        </tr>
+    </thead>
+<tbody>
+{% for item in object_list %}
+    <tr>
+        <td>{{ item.date }}</td>
+        <td>{{ item.restaurant }}</td>
+        <td>{{ item.planned_hours }}</td>
+        <td>{{ item.actual_hours }}</td>
+        <td>{{ item.budget }}</td>
+        <td>{{ item.sells }}</td>
+    </tr>
+{% endfor %}
+{% else %}
+<div class="mb-3"><br>
+    <a href="{% url 'load_table' %}" class="btn btn-dark">Carica Report</a> <h5>L'operazione potrebbe richiedere qualche minuto...</h5>
+</div>
+{% endif %}
+</tbody>
+</table>
+{% endblock %}
+
+
