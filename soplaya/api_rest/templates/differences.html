@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+{% if data %}
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Planned_Hours</th>
+            <th scope="col">Actual_Hours</th>
+            <th scope="col">Budget</th>
+            <th scope="col">Sells</th>
+            <th scope="col">Difference_Hours</th>
+            <th scope="col">Difference_Budget</th>
+        </tr>
+    </thead>
+<tbody>
+{% for item in data %}
+    <tr>
+        <td>{{ item.date }}</td>
+        <td>{{ item.restaurant }}</td>
+        <td>{{ item.planned_hours }}</td>
+        <td>{{ item.actual_hours }}</td>
+        <td>{{ item.budget }}</td>
+        <td>{{ item.sells }}</td>
+        <td>{{ item.difference_hours }}</td>
+        <td>{{ item.difference_budget }}</td>
+    </tr>
+{% endfor %}
+{% else %}
+<h5>Nessun dato presente.</h5>
+{% endif %}
+</tbody>
+</table>
+{% endblock %}
+
+
